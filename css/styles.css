@@ -131,6 +131,18 @@ p {
 	display: none;
 }
 
+#catFamilySection {
+	display: none;
+}
+
+#aboutUsSection {
+	display: none;
+}
+
+#resultSection {
+	display: none;
+}
+
 #form-img {
 	width: 100%;
 }

@@ -17,39 +17,64 @@ function Cat (catName, age, personality, color) {
 
 Cat.prototype.Random = function() {
   if (this.personalityAnswer === "cuddly") {
-      return (this.cuddly[Math.floor(Math.random() * this.cuddly.length)])
+			var = cuddleTrait;
+			cuddleTrait = (this.cuddly[Math.floor(Math.random() * this.cuddly.length)]);
+			catFamily.catPersonality.push(cuddleTrait);
+			return (cuddleTrait);
   } else if (this.personalityAnswer === "curious") {
-      return (this.curious[Math.floor(Math.random() * this.curious.length)])
+			var = curiousTrait;
+			curiousTrait = (this.curious[Math.floor(Math.random() * this.curious.length)]);
+			catFamily.catPersonality.push(curiousTrait);
+			return (curiousTrait);
   } else if (this.personalityAnswer === "playful") {
-      return (this.playful[Math.floor(Math.random() * this.playful.length)])
+			var = playfulTrait;
+			playfulTrait = (this.playful[Math.floor(Math.random() * this.playful.length)]);
+			catFamily.catPersonality.push(playfulTrait);
+			return (playfulTrait);
   } else (this.personalityAnswer === "independent")
-      return (this.independent[Math.floor(Math.random() * this.independent.length)])
+			var = independentTrait;
+			independentTrait = (this.independent[Math.floor(Math.random() * this.independent.length)]);
+			catFamily.catPersonality.push(independentTrait);
+			return (independentTrait);
 };
 
 Cat.prototype.randomImg = function() {
   if (this.catColor === "orange") {
       var orangePic = this.orange[Math.floor(Math.random() * this.orange.length)];
-			// $("#show-cat").html(orangePic);
+			catFamily.catPhoto.push(orangePic);
 			return (orangePic);
 		} else if (this.catColor === "black") {
 	    var blackPic = this.black[Math.floor(Math.random() * this.black.length)];
-			// $("#show-cat").html(blackPic);
+			catFamily.catPhoto.push(blackPic);
 			return (blackPic);
 		} else if (this.catColor === "white") {
 		  var whitePic = this.white[Math.floor(Math.random() * this.white.length)];
-			// $("#show-cat").html(whitePic);
+			catFamily.catPhoto.push(whitePic);
 			return (whitePic);
 		} else if (this.catColor === "grey") {
 		  var greyPic = this.grey[Math.floor(Math.random() * this.grey.length)];
-			// $("#show-cat").html(greyPic);
+			catFamily.catPhoto.push(greyPic);
 			return (greyPic);
 		} else {
 			var brownPic = this.brown[Math.floor(Math.random() * this.brown.length)];
-			// $("#show-cat").html(brownPic);
+			catFamily.catPhoto.push(brownPic);
 			return (brownPic);
 		}
 };
 
+
+function catFamily () {
+	catName = [];
+	catColor = [];
+	catPersonality = [];
+	catAge = []
+	catPhoto = []
+	numberOfCats = 0;
+}
+
+catFamily.prototype.addtoFamily = function() {
+	this.catName.push(brownPic);
+}
 
 //user interface logic
 $(document).ready(function(){
@@ -63,6 +88,16 @@ $(document).ready(function(){
     $("#addACatSection").show();
 		$("#landingSection").hide();
   });
+	$("#showFormAgain").click(function(event){
+    event.preventDefault();
+    $("#addACatSection").show();
+		$("#resultSection").hide();
+  });
+	$("#addtoFamily").click(function(event){
+    event.preventDefault();
+    $("#catFamilySection").show();
+		$("#resultSection").hide();
+  });
 	$("form#cat-form").submit(function(event){
     event.preventDefault();
     var personName = $("#name").val();
@@ -72,8 +107,9 @@ $(document).ready(function(){
     var personalityAnswer = $("input:radio[name=personality]:checked").val();
 		newCat = new Cat(catName, age, personalityAnswer, catColor);
 		$("#fam-name").text(personName + ", we'd like you to meet:");
-		$("#results").prepend("<span id='catResults'>" + "<p>Name: " + newCat.catName + "</p>" + "<p>Age: " + newCat.age + "</p>" + "<p>Favorite Thing: " + newCat.Random() + "</p></span>" );
-		$("#photoResults").prepend(newCat.randomImg());
+		$("#results").html("<span id='catResults'>" + "<p>Name: " + newCat.catName + "</p>" + "<p>Age: " + newCat.age + "</p>" + "<p>Favorite Thing: " + newCat.Random() + "</p></span>");
+		$("#photoResults").html(newCat.randomImg());
+		$("#name").hide();
 		$("#resultSection").show();
 		$("#addACatSection").hide();
   });
