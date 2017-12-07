@@ -65,7 +65,7 @@ body {
 	color: black;
 }
 
-#body {
+#landingSection {
 	background-color: #FFE4A0;
 }
 
@@ -82,7 +82,6 @@ body {
 	line-height: 60px;
 	font-family: 'Nunito Sans', sans-serif;
 	color: #3D4F53;
-
 }
 
 #body-left p {
@@ -102,8 +101,15 @@ p {
 	margin: 15px 0px 15px 0px;
 }
 
-form {
-	width: 100%;
+#addACatSection {
+	background-color: #FFE4A0;
+}
+
+#addACatSectionLeft{
+	padding-top: 8%;
+	padding-left: 6%;
+	padding-right: 6%;
+	text-align: left;
 }
 
 #name-header {
@@ -124,7 +130,15 @@ form {
 	width: 100%;
 }
 
-#cat-form {
+#addACatSection {
+	display: none;
+}
+
+#form-img {
+	width: 100%;
+}
+
+#aboutUsSection{
 	display: none;
 }
 
@@ -136,7 +150,6 @@ form {
 
 #footer img {
 	margin: 0px 5px;
-
 }
 
 #footer p {
@@ -178,6 +191,27 @@ form {
 }
 .btn-change7:hover{
     box-shadow:250px 0 0 #FFE4A0 inset;
+		border: solid #3D4F53 1px;
+		color: #3D4F53;
+}
+
+#dreamCat {
+	padding: 15px 25px;
+	background-color: #EA638C;
+	border-radius: 0px;
+	border: 0px;
+	color: white;
+	text-transform: uppercase;
+	font-family: 'Nunito Sans', sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	margin-top: 20px;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: linear;
+    box-shadow:0px 0 0 #EA638C  inset;
+}
+#dreamCat:hover{
+    box-shadow:300px 0 0 #FFE4A0 inset;
 		border: solid #3D4F53 1px;
 		color: #3D4F53;
 }
