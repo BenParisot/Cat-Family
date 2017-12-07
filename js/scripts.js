@@ -71,9 +71,11 @@ $(document).ready(function(){
     var catName = $("#catName").val();
     var personalityAnswer = $("input:radio[name=personality]:checked").val();
 		newCat = new Cat(catName, age, personalityAnswer, catColor);
-		$("#fam-name").text(personName);
-		$("#name-header").show();
-		$("#results").prepend("<div id='catResults' class='row'>" + "<div class='col-md-4'>" + newCat.randomImg() + "</div>" + "<div class='col-md-8'>" + "<p>Name: " + newCat.catName + "</p>" + "<p>Age: " + newCat.age + "</p>" + "<p>Favorite Thing: " + newCat.Random() + "</p></div></div>" )
+		$("#fam-name").text(personName + ", we'd like you to meet:");
+		$("#results").prepend("<span id='catResults'>" + "<p>Name: " + newCat.catName + "</p>" + "<p>Age: " + newCat.age + "</p>" + "<p>Favorite Thing: " + newCat.Random() + "</p></span>" );
+		$("#photoResults").prepend(newCat.randomImg());
+		$("#resultSection").show();
+		$("#addACatSection").hide();
   });
 
 });

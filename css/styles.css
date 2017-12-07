@@ -106,14 +106,11 @@ p {
 }
 
 #addACatSectionLeft{
-	padding-top: 8%;
+	padding-top: 4%;
 	padding-left: 6%;
-	padding-right: 6%;
+	padding-right: 6%
+	padding-bottom: 4%;
 	text-align: left;
-}
-
-#name-header {
-	display: none;
 }
 
 #thin {
