@@ -67,14 +67,27 @@ function catFamily () {
 	catName = [];
 	catColor = [];
 	catPersonality = [];
+	catPersonalityType = [];
 	catAge = []
 	catPhoto = []
 	numberOfCats = 0;
 }
 
 catFamily.prototype.addtoFamily = function() {
-	this.catName.push(brownPic);
+	//to move results from form entry to permanent cat family member.
+ 	this.numberOfCats += 1;
+	this.catName.push(Cat.catName);
+	this.catAge.push(Cat.age);
+	this.catColor.push(Cat.catColor);
+	this.catPersonalityType.push(Cat.personalityAnswer);
 }
+
+catFamily.prototype.clearLastResult = function() {
+	// add function that will empty last results from each array needed.
+	this.catPhoto.pop();
+	this.catPersonality.pop();
+}
+]
 
 //user interface logic
 $(document).ready(function(){
