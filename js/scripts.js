@@ -93,14 +93,16 @@ catFamily.prototype.addtoFamily = function() {
 	this.numberOfCats += 1;
 };
 
-Cat.prototype.clearLastResult = function() {
-	// add function that will empty last results from each array needed.
-	this.catPhoto = 0;
-	this.catPersonality = 0;
-}
+catFamily.prototype.showFamily = function() {
+	//populate HTML to show family members.
+	var currentCatNumber = this.numberOfCats;
+	if (this.numberOfCats >= 1)
+		for (index = 0; index < currentCatNumber ; index += 1){
+			$("#catFamilySectionRight").append("<span id='familyResults'><p>Name: " + this.catName[index] + "</p><p>Age: " + this.catAge[index] + "</p><p>Favorite Thing: " + this.catPersonality[index] + "</p><p>Personality Type: " + this.catPersonalityType[index] + "</p></span><span id='familyPhotoResults'>" + this.catPhoto[index] + "</span>");
+		};
+};
 
 function resetform() {
-	console.log("I'm resetting!");
 	$("#check").prop("checked", true);
 	$("#alsocheck").prop("checked", true);
 	$("#catName").val("");
@@ -115,23 +117,38 @@ $(document).ready(function(){
     event.preventDefault();
     $("#addACatSection").show();
 		$("#landingSection").hide();
+		$("#catFamilySectionRight").empty();
   });
 	$("#start").click(function(event){
     event.preventDefault();
     $("#addACatSection").show();
 		$("#landingSection").hide();
   });
+	$("#yourFamily").click(function(event){
+    event.preventDefault();
+		if (catFamily.numberOfCats >= 1) {
+			newcatFamily.showFamily();
+	    $("#catFamilySection").show();
+			$("#resultSection").hide();
+			$("#addACatSection").hide();
+			$("#landingSection").hide();
+			resetform();
+		}
+  });
 	$("#showFormAgain").click(function(event){
     event.preventDefault();
     $("#addACatSection").show();
 		$("#resultSection").hide();
+		$("#catFamilySectionRight").empty();
 		resetform();
   });
 	$("#addtoFamily").click(function(event){
     event.preventDefault();
 		newcatFamily.addtoFamily();
+		newcatFamily.showFamily();
     $("#catFamilySection").show();
 		$("#resultSection").hide();
+		resetform();
 		console.log(newcatFamily);
   });
 	$("form#cat-form").submit(function(event){
@@ -145,7 +162,7 @@ $(document).ready(function(){
 		$("#fam-name").text(personName + ", we'd like you to meet:");
 		$("#results").html("<span id='catResults'>" + "<p>Name: " + newCat.catName + "</p>" + "<p>Age: " + newCat.age + "</p>" + "<p>Favorite Thing: " + newCat.Random() + "</p></span>");
 		$("#photoResults").html(newCat.randomImg());
-		$("#name").hide();
+		$("#name-section").hide();
 		$("#resultSection").show();
 		$("#addACatSection").hide();
   });
