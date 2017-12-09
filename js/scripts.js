@@ -98,7 +98,7 @@ catFamily.prototype.showFamily = function() {
 	var currentCatNumber = this.numberOfCats;
 	if (this.numberOfCats >= 1)
 		for (index = 0; index < currentCatNumber ; index += 1){
-			$("#catFamilySectionRight").append("<span id='familyResults'><p>Name: " + this.catName[index] + "</p><p>Age: " + this.catAge[index] + "</p><p>Favorite Thing: " + this.catPersonality[index] + "</p><p>Personality Type: " + this.catPersonalityType[index] + "</p></span><span id='familyPhotoResults'>" + this.catPhoto[index] + "</span>");
+			$("#catFamilySectionRight").append("<span id='familyResults'><p>Name: " + this.catName[index] + "</p><p>Age: " + this.catAge[index] + "</p><p>Personality Type: " + this.catPersonalityType[index] + "</p><p>Favorite Thing: " + this.catPersonality[index] + "</p></span><span id='familyPhotoResults'>" + this.catPhoto[index] + "</span>");
 		};
 };
 
@@ -115,9 +115,11 @@ $(document).ready(function(){
 	newcatFamily = new catFamily();
 	$("#addACat").click(function(event){
     event.preventDefault();
+		resetform();
     $("#addACatSection").show();
 		$("#landingSection").hide();
 		$("#catFamilySection").hide();
+		$("#aboutUsSection").hide();
 		$("#catFamilySectionRight").empty();
   });
 	$("#start").click(function(event){
@@ -133,15 +135,23 @@ $(document).ready(function(){
 			$("#resultSection").hide();
 			$("#addACatSection").hide();
 			$("#landingSection").hide();
-			resetform();
+			$("#aboutUsSection").hide();
 		}
   });
+	$("#aboutUs").click(function(event){
+		event.preventDefault();
+		$("#catFamilySection").hide();
+		$("#resultSection").hide();
+		$("#addACatSection").hide();
+		$("#landingSection").hide();
+		$("#aboutUsSection").show();
+	});
 	$("#showFormAgain").click(function(event){
     event.preventDefault();
+		resetform();
     $("#addACatSection").show();
 		$("#resultSection").hide();
 		$("#catFamilySectionRight").empty();
-		resetform();
   });
 	$("#addtoFamily").click(function(event){
     event.preventDefault();
@@ -150,8 +160,18 @@ $(document).ready(function(){
     $("#catFamilySection").show();
 		$("#resultSection").hide();
 		resetform();
-		console.log(newcatFamily);
   });
+	$("#addAnotherCat").click(function(event){
+    event.preventDefault();
+		resetform();
+    $("#addACatSection").show();
+		$("#resultSection").hide();
+		$("#catFamilySection").hide();
+		$("#catFamilySectionRight").empty();
+  });
+	// $("#goGetThem").click(function(event){s
+  //   event.preventDefault();
+  // });
 	$("form#cat-form").submit(function(event){
     event.preventDefault();
     var personName = $("#name").val();
