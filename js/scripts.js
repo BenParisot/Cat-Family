@@ -117,6 +117,7 @@ $(document).ready(function(){
     event.preventDefault();
     $("#addACatSection").show();
 		$("#landingSection").hide();
+		$("#catFamilySection").hide();
 		$("#catFamilySectionRight").empty();
   });
 	$("#start").click(function(event){
@@ -126,7 +127,7 @@ $(document).ready(function(){
   });
 	$("#yourFamily").click(function(event){
     event.preventDefault();
-		if (catFamily.numberOfCats >= 1) {
+		if (newcatFamily.numberOfCats >= 1) {
 			newcatFamily.showFamily();
 	    $("#catFamilySection").show();
 			$("#resultSection").hide();
