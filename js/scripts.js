@@ -3,94 +3,110 @@ function Cat (catName, age, personality, color) {
 	this.catName = catName;
 	this.age = age;
 	this.personalityAnswer = personality;
+	this.catColor = color;
+	this.catPhoto = 0;
+	this.catTrait = 0;
 	this.independent = ["Staring out windows", "Hiding in boxes", "Being fed treats", "Meowing at 3AM", "Sitting on the highest shelf of the cat tree", "Rubbing around your ankles and then running away", "Watching you sleep", "Long naps"];
 	this.playful = ["Attacking ankles", "Playing with toy mice", "Chasing laser pointers", "Rolling around on the floor for no reason", "Eating house plants", "Playing fetch", "Eating catnip, and then running around the house"];
 	this.cuddly = ["Sitting on your lap", "Being held like a baby", "Laying on your computer when you are trying to work", "Purring", "Waking you up by putting their paw on your face", "Sleeping under the blankets", "Baking bread", "Good ear scratches"];
 	this.curious = ["Trying to catch birds through windows", "Climbing onto the refridgerator", "Batting breakables off of shelves", "Greeting visitors", "Trying to escape out the front door", "Eating food you left on out on the counter", "Getting lost in walls"];
-	this.catColor = color;
 	this.orange = ["<img src='img/orange/orange01.jpg' width='100%'>", "<img src='img/orange/orange02.jpg' width='100%'>"];
 	this.white = ["<img src='img/white/white01.jpg' width='100%'>", "<img src='img/white/white02.jpg' width='100%'>", "<img src='img/white/white03.jpg' width='100%'>"];
 	this.black = ["<img src='img/black/black01.jpg' width='100%'>", "<img src='img/black/black02.jpg' width='100%'>"];
 	this.brown = ["<img src='img/brown/brown01.jpg' width='100%'>", "<img src='img/brown/brown02.jpg' width='100%'>", "<img src='img/brown/brown03.jpg' width='100%'>"];
 	this.grey = ["<img src='img/grey/grey01.jpg' width='100%'>", "<img src='img/grey/grey02.jpg' width='100%'>", "<img src='img/grey/grey03.jpg' width='100%'>"];
+	// this.catFamily = []
 	};
+
+	function catFamily () {
+		this.catName = new Array(1);
+		this.catColor = new Array(1);
+		this.catPersonality = new Array(1);
+		this.catPersonalityType = new Array(1);
+		this.catAge = new Array(1)
+		this.catPhoto = new Array(1)
+		this.numberOfCats = 0;
+	}
 
 Cat.prototype.Random = function() {
   if (this.personalityAnswer === "cuddly") {
-			var = cuddleTrait;
-			cuddleTrait = (this.cuddly[Math.floor(Math.random() * this.cuddly.length)]);
-			catFamily.catPersonality.push(cuddleTrait);
-			return (cuddleTrait);
+		 	this.catTrait = (this.cuddly[Math.floor(Math.random() * this.cuddly.length)]);
+			return (this.catTrait);
   } else if (this.personalityAnswer === "curious") {
-			var = curiousTrait;
-			curiousTrait = (this.curious[Math.floor(Math.random() * this.curious.length)]);
-			catFamily.catPersonality.push(curiousTrait);
-			return (curiousTrait);
+			this.catTrait = (this.curious[Math.floor(Math.random() * this.curious.length)]);
+			return (this.catTrait);
   } else if (this.personalityAnswer === "playful") {
-			var = playfulTrait;
-			playfulTrait = (this.playful[Math.floor(Math.random() * this.playful.length)]);
-			catFamily.catPersonality.push(playfulTrait);
-			return (playfulTrait);
+			this.catTrait = (this.playful[Math.floor(Math.random() * this.playful.length)]);
+			// catFamily.catPersonality.push(playfulTrait);
+			return (this.catTrait);
   } else (this.personalityAnswer === "independent")
-			var = independentTrait;
-			independentTrait = (this.independent[Math.floor(Math.random() * this.independent.length)]);
-			catFamily.catPersonality.push(independentTrait);
-			return (independentTrait);
+			this.catTrait = (this.independent[Math.floor(Math.random() * this.independent.length)]);
+			// catFamily.catPersonality.push(independentTrait);
+			return (this.catTrait);
 };
 
 Cat.prototype.randomImg = function() {
   if (this.catColor === "orange") {
-      var orangePic = this.orange[Math.floor(Math.random() * this.orange.length)];
-			catFamily.catPhoto.push(orangePic);
-			return (orangePic);
+      this.catPhoto = this.orange[Math.floor(Math.random() * this.orange.length)];
+			// catFamily.catPhoto.push(orangePic);
+			return (this.catPhoto);
 		} else if (this.catColor === "black") {
-	    var blackPic = this.black[Math.floor(Math.random() * this.black.length)];
-			catFamily.catPhoto.push(blackPic);
-			return (blackPic);
+	    this.catPhoto = this.black[Math.floor(Math.random() * this.black.length)];
+			// catFamily.catPhoto.push(blackPic);
+			return (this.catPhoto);
 		} else if (this.catColor === "white") {
-		  var whitePic = this.white[Math.floor(Math.random() * this.white.length)];
-			catFamily.catPhoto.push(whitePic);
-			return (whitePic);
+		  this.catPhoto = this.white[Math.floor(Math.random() * this.white.length)];
+			// catFamily.catPhoto.push(whitePic);
+			return (this.catPhoto);
 		} else if (this.catColor === "grey") {
-		  var greyPic = this.grey[Math.floor(Math.random() * this.grey.length)];
-			catFamily.catPhoto.push(greyPic);
-			return (greyPic);
+		  this.catPhoto = this.grey[Math.floor(Math.random() * this.grey.length)];
+			// catFamily.catPhoto.push(greyPic);
+			return (this.catPhoto);
 		} else {
-			var brownPic = this.brown[Math.floor(Math.random() * this.brown.length)];
-			catFamily.catPhoto.push(brownPic);
-			return (brownPic);
+			this.catPhoto = this.brown[Math.floor(Math.random() * this.brown.length)];
+			// catFamily.catPhoto.push(brownPic);
+			return (this.catPhoto);
 		}
 };
 
-
-function catFamily () {
-	catName = [];
-	catColor = [];
-	catPersonality = [];
-	catPersonalityType = [];
-	catAge = []
-	catPhoto = []
-	numberOfCats = 0;
-}
-
 catFamily.prototype.addtoFamily = function() {
-	//to move results from form entry to permanent cat family member.
- 	this.numberOfCats += 1;
-	this.catName.push(Cat.catName);
-	this.catAge.push(Cat.age);
-	this.catColor.push(Cat.catColor);
-	this.catPersonalityType.push(Cat.personalityAnswer);
-}
+	if (this.numberOfCats < 1){
+		this.catPhoto.unshift(newCat.catPhoto);
+		this.catName.unshift(newCat.catName);
+		this.catAge.unshift(newCat.age);
+		this.catColor.unshift(newCat.catColor);
+		this.catPersonalityType.unshift(newCat.personalityAnswer);
+		this.catPersonality.unshift(newCat.catTrait);
+		this.catPhoto.pop();
+		this.catName.pop();
+		this.catAge.pop();
+		this.catColor.pop();
+		this.catPersonalityType.pop();
+		this.catPersonality.pop();
+	} else {
+		// for (var index = 1 ; index <= this.numberOfCats; index += 1){
+			console.log("you made it");
+			this.catPhoto.unshift(newCat.catPhoto);
+			this.catName.unshift(newCat.catName);
+			this.catAge.unshift(newCat.age);
+			this.catColor.unshift(newCat.catColor);
+			this.catPersonalityType.unshift(newCat.personalityAnswer);
+			this.catPersonality.unshift(newCat.catTrait);
+	// }
+	};
+	this.numberOfCats += 1;
+};
 
-catFamily.prototype.clearLastResult = function() {
+Cat.prototype.clearLastResult = function() {
 	// add function that will empty last results from each array needed.
 	this.catPhoto.pop();
 	this.catPersonality.pop();
 }
-]
+
 
 //user interface logic
 $(document).ready(function(){
+	newcatFamily = new catFamily();
 	$("#addACat").click(function(event){
     event.preventDefault();
     $("#addACatSection").show();
@@ -105,11 +121,14 @@ $(document).ready(function(){
     event.preventDefault();
     $("#addACatSection").show();
 		$("#resultSection").hide();
+		// newcatFamily.clearLastResult();
   });
 	$("#addtoFamily").click(function(event){
     event.preventDefault();
+		newcatFamily.addtoFamily();
     $("#catFamilySection").show();
 		$("#resultSection").hide();
+		console.log(newcatFamily);
   });
 	$("form#cat-form").submit(function(event){
     event.preventDefault();
