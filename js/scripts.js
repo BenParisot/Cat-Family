@@ -15,7 +15,6 @@ function Cat (catName, age, personality, color) {
 	this.black = ["<img src='img/black/black01.jpg' width='100%'>", "<img src='img/black/black02.jpg' width='100%'>"];
 	this.brown = ["<img src='img/brown/brown01.jpg' width='100%'>", "<img src='img/brown/brown02.jpg' width='100%'>", "<img src='img/brown/brown03.jpg' width='100%'>"];
 	this.grey = ["<img src='img/grey/grey01.jpg' width='100%'>", "<img src='img/grey/grey02.jpg' width='100%'>", "<img src='img/grey/grey03.jpg' width='100%'>"];
-	// this.catFamily = []
 	};
 
 	function catFamily () {
@@ -84,24 +83,29 @@ catFamily.prototype.addtoFamily = function() {
 		this.catPersonalityType.pop();
 		this.catPersonality.pop();
 	} else {
-		// for (var index = 1 ; index <= this.numberOfCats; index += 1){
-			console.log("you made it");
-			this.catPhoto.unshift(newCat.catPhoto);
-			this.catName.unshift(newCat.catName);
-			this.catAge.unshift(newCat.age);
-			this.catColor.unshift(newCat.catColor);
-			this.catPersonalityType.unshift(newCat.personalityAnswer);
-			this.catPersonality.unshift(newCat.catTrait);
-	// }
+		this.catPhoto.unshift(newCat.catPhoto);
+		this.catName.unshift(newCat.catName);
+		this.catAge.unshift(newCat.age);
+		this.catColor.unshift(newCat.catColor);
+		this.catPersonalityType.unshift(newCat.personalityAnswer);
+		this.catPersonality.unshift(newCat.catTrait);
 	};
 	this.numberOfCats += 1;
 };
 
 Cat.prototype.clearLastResult = function() {
 	// add function that will empty last results from each array needed.
-	this.catPhoto.pop();
-	this.catPersonality.pop();
+	this.catPhoto = 0;
+	this.catPersonality = 0;
 }
+
+function resetform() {
+	console.log("I'm resetting!");
+	$("#check").prop("checked", true);
+	$("#alsocheck").prop("checked", true);
+	$("#catName").val("");
+	$("#age").val(1);
+	};
 
 
 //user interface logic
@@ -121,7 +125,7 @@ $(document).ready(function(){
     event.preventDefault();
     $("#addACatSection").show();
 		$("#resultSection").hide();
-		// newcatFamily.clearLastResult();
+		resetform();
   });
 	$("#addtoFamily").click(function(event){
     event.preventDefault();
