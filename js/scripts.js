@@ -94,11 +94,10 @@ catFamily.prototype.addtoFamily = function() {
 };
 
 catFamily.prototype.showFamily = function() {
-	//populate HTML to show family members.
 	var currentCatNumber = this.numberOfCats;
 	if (this.numberOfCats >= 1)
 		for (index = 0; index < currentCatNumber ; index += 1){
-			$("#catFamilySectionRight").append("<span id='familyResults'><p>Name: " + this.catName[index] + "</p><p>Age: " + this.catAge[index] + "</p><p>Personality Type: " + this.catPersonalityType[index] + "</p><p>Favorite Thing: " + this.catPersonality[index] + "</p></span><span id='familyPhotoResults'>" + this.catPhoto[index] + "</span>");
+			$("#catFamilySectionRight").append("<div class='row'><div class='col-md-3' id='familyPhotoResults'>" + this.catPhoto[index] + "</div><div class='col-md-9' id='familyResults'><p>Name: " + this.catName[index] + "</p><p>Age: " + this.catAge[index] + "</p><p>Personality Type: " + this.catPersonalityType[index] + "</p><p>Favorite Thing: " + this.catPersonality[index] + "</p></div></div>");
 		};
 };
 
@@ -130,6 +129,7 @@ $(document).ready(function(){
 	$("#yourFamily").click(function(event){
     event.preventDefault();
 		if (newcatFamily.numberOfCats >= 1) {
+			$("#catFamilySectionRight").empty();
 			newcatFamily.showFamily();
 	    $("#catFamilySection").show();
 			$("#resultSection").hide();

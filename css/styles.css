@@ -1,3 +1,18 @@
+#familyPhotoResults{ // this is populated in JS
+	float: left;
+	width: 150px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#familyResults{ // this is populated in JS
+	font-style: italic;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 body {
 	background-color: #3D4F53;
 }
