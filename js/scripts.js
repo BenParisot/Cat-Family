@@ -17,7 +17,7 @@ function Cat (catName, age, personality, color) {
 	this.brown = ["<img src='img/brown/brown01.jpg' width='100%'>", "<img src='img/brown/brown02.jpg' width='100%'>", "<img src='img/brown/brown03.jpg' width='100%'>", "<img src='img/brown/brown04.jpg' width='100%'>", "<img src='img/brown/brown05.jpg' width='100%'>"];
 	this.grey = ["<img src='img/grey/grey01.jpg' width='100%'>", "<img src='img/grey/grey02.jpg' width='100%'>", "<img src='img/grey/grey05.jpg' width='100%'>", "<img src='img/grey/grey04.jpg' width='100%'>", "<img src='img/grey/grey01.jpg' width='100%'>"];
 	this.location = ["Oregon Humane Society, 1067 NE Columbia Blvd, Portland", "The Pixie Project, 510 NE Martin Luther King Jr Blvd, Portland", "Cat Adoption Team, 14175 SW Galbreath Dr, Sherwood", "Furry Friends Cat Rescue, 6715 NE 63rd St #450, Vancouver", "Animal Aid Inc, 5335 SW 42nd Ave, Portland"]
-	};
+};
 
 	function catFamily () {
 		this.catName = new Array(1);
@@ -27,7 +27,7 @@ function Cat (catName, age, personality, color) {
 		this.catAge = new Array(1)
 		this.catPhoto = new Array(1)
 		this.numberOfCats = 0;
-	}
+};
 
 Cat.prototype.Random = function() {
   if (this.personalityAnswer === "cuddly") {
@@ -81,7 +81,7 @@ catFamily.prototype.allLocations = function() {
 		for (index = 0; index < catNumber ; index += 1){
 			$("#locations").append("<p><b>" + this.catName[index] + ":</b> " + newCat.randomLoc() + "</p>");
 		};
-	};
+};
 
 catFamily.prototype.addtoFamily = function() {
 	if (this.numberOfCats < 1){
@@ -108,8 +108,6 @@ catFamily.prototype.addtoFamily = function() {
 	this.numberOfCats += 1;
 };
 
-
-
 catFamily.prototype.showFamily = function() {
 	var currentCatNumber = this.numberOfCats;
 	if (this.numberOfCats >= 1)
@@ -123,74 +121,79 @@ function resetform() {
 	$("#alsocheck").prop("checked", true);
 	$("#catName").val("");
 	$("#age").val(1);
-	};
+};
 
 
 //user interface logic
 $(document).ready(function(){
 	newcatFamily = new catFamily();
+
 	$("#addACat").click(function(event){
     event.preventDefault();
 		resetform();
-    $("#addACatSection").show();
-		$("#landingSection").hide();
-		$("#catFamilySection").hide();
-		$("#aboutUsSection").hide();
+    $("#addACatSection").fadeIn(900);
+		$("#landingSection").fadeOut(900);
+		$("#catFamilySection").fadeOut(900);
+		$("#aboutUsSection").fadeOut(900);
 		$("#catFamilySectionRight").empty();
   });
+
 	$("#start").click(function(event){
     event.preventDefault();
-    $("#addACatSection").show();
-		$("#landingSection").hide();
+    $("#addACatSection").fadeIn(900);
+		$("#landingSection").fadeOut(900);
   });
+
 	$("#yourFamily").click(function(event){
     event.preventDefault();
 		if (newcatFamily.numberOfCats >= 1) {
 			$("#catFamilySectionRight").empty();
 			newcatFamily.showFamily();
-	    $("#catFamilySection").show();
-			$("#resultSection").hide();
-			$("#addACatSection").hide();
-			$("#landingSection").hide();
-			$("#aboutUsSection").hide();
+	    $("#catFamilySection").fadeIn(900);
+			$("#resultSection").fadeOut(900);
+			$("#addACatSection").fadeOut(900);
+			$("#landingSection").fadeOut(900);
+			$("#aboutUsSection").fadeOut(900);
 		}
   });
+
 	$("#aboutUs").click(function(event){
 		event.preventDefault();
 		$("#catFamilySection").hide();
-		$("#resultSection").hide();
-		$("#addACatSection").hide();
-		$("#landingSection").hide();
-		$("#aboutUsSection").show();
+		$("#resultSection").fadeOut(900);
+		$("#addACatSection").fadeOut(900);
+		$("#landingSection").fadeOut(900);
+		$("#aboutUsSection").fadeIn(900);
 	});
+
 	$("#showFormAgain").click(function(event){
     event.preventDefault();
 		resetform();
-    $("#addACatSection").show();
-		$("#resultSection").hide();
+    $("#addACatSection").fadeIn(900);
+		$("#resultSection").fadeOut(900);
 		$("#catFamilySectionRight").empty();
   });
+
 	$("#addtoFamily").click(function(event){
     event.preventDefault();
 		newcatFamily.addtoFamily();
 		newcatFamily.showFamily();
-    $("#catFamilySection").show();
-		$("#resultSection").hide();
-		$("#adoptionLocations").hide();
-		$("#catFamilySectionLeftInner").show();
+    $("#catFamilySection").fadeIn(900);
+		$("#resultSection").fadeOut(900);
+		$("#adoptionLocations").fadeOut(900);
+		$("#catFamilySectionLeftInner").fadeIn(900);
 		resetform();
   });
+
 	$("#addAnotherCat").click(function(event){
     event.preventDefault();
 		resetform();
-    $("#addACatSection").show();
-		$("#resultSection").hide();
-		$("#catFamilySection").hide();
+    $("#addACatSection").fadeIn(900);
+		$("#resultSection").fadeOut(900);
+		$("#catFamilySection").fadeOut(900);
 		$("#catFamilySectionRight").empty();
   });
-	// $("#goGetThem").click(function(event){s
-  //   event.preventDefault();
-  // });
+
 	$("form#cat-form").submit(function(event){
     event.preventDefault();
     var personName = $("#name").val();
@@ -202,16 +205,15 @@ $(document).ready(function(){
 		$("#fam-name").text(personName + ", we'd like you to meet:");
 		$("#results").html("<span id='catResults'>" + "<p>Name: " + newCat.catName + "</p>" + "<p>Age: " + newCat.age + "</p>" + "<p>Favorite Thing: " + newCat.Random() + "</p></span>");
 		$("#photoResults").html(newCat.randomImg());
-		$("#name-section").hide();
-		$("#resultSection").show();
-		$("#addACatSection").hide();
+		$("#name-section").fadeOut(900);
+		$("#resultSection").fadeIn(900);
+		$("#addACatSection").fadeOut(900);
   });
 
 	$("#adopt").click(function(event) {
 		$("#catFamilySectionLeftInner").hide();
-		$("#adoptionLocations").show();
+		$("#adoptionLocations").fadeIn(900);
 		$("#locations").html(newcatFamily.allLocations());
-
 	});
 
 });
