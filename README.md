@@ -26,7 +26,7 @@ Using Javascript, the website takes the user input and returns a count of number
 
 * _Open terminal_
 * _Move to desired folder_
-* _Type "git clone https://github.com/rogueminx/ping-pong.git"_
+* _Type "git clone https://github.com/BenParisot/cat-family.git"_
 * _Open index.html in browser of choice_
 
 ## Known Bugs
@@ -35,7 +35,7 @@ _None_
 
 ## Support and contact details
 
-_Please contact me at annamarie@rogueminx.com with questions._
+_Please contact Ben or Anna Marie at annamarie@rogueminx.com or me@benparisot.com with questions._
 
 ## Technologies Used
 
@@ -45,4 +45,4 @@ _Please contact me at annamarie@rogueminx.com with questions._
 
 ### License
 
-Copyright (c) 2017 **Anna Marie Cooper**
+Copyright (c) 2017 **Anna Marie Cooper and Ben Parisot**
