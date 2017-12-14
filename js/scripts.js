@@ -215,5 +215,5 @@ $(document).ready(function(){
 		$("#adoptionLocations").fadeIn(900);
 		$("#locations").html(newcatFamily.allLocations());
 	});
-	
+
 });
